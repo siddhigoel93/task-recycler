@@ -11,14 +11,20 @@ import androidx.recyclerview.widget.RecyclerView
 class MyAdapter(var bookList : ArrayList<books> , var context: Activity) :
     RecyclerView.Adapter<MyAdapter.MyViewHolder>()
 {
-
+        lateinit var myListener: OnItemClickListener
+        interface OnItemClickListener{
+            fun onItemClick(position: Int)
+        }
+    fun setClicklListener(listener: OnItemClickListener){
+        myListener=listener
+    }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
-        viewType: Int
+        viewType: Int,
     ): MyAdapter.MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.card,parent,false)
-        return MyViewHolder(itemView)
+        return MyViewHolder(itemView,myListener)
     }
 
     override fun onBindViewHolder(holder: MyAdapter.MyViewHolder, position: Int) {
@@ -31,11 +37,19 @@ class MyAdapter(var bookList : ArrayList<books> , var context: Activity) :
     override fun getItemCount(): Int {
         return bookList.size
     }
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    class MyViewHolder(itemView: View , listener: OnItemClickListener) : RecyclerView.ViewHolder(itemView){
          val bookImg = itemView.findViewById<ImageView>(R.id.cover)
         val bookName = itemView.findViewById<TextView>(R.id.title)
         val bookAuthor = itemView.findViewById<TextView>(R.id.author)
+
+        init {
+            itemView.setOnClickListener{
+                listener.onItemClick(adapterPosition)
+            }
+        }
     }
+
+
 
 
 }
