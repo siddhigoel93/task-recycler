@@ -8,6 +8,7 @@
     app:cardBackgroundColor="#3A3A3A"
     app:cardCornerRadius="20dp"
     app:cardElevation="7dp"
+
     app:layout_constraintWidth_percent="0.40">
 
     <LinearLayout
