@@ -5,6 +5,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
@@ -56,5 +58,17 @@ class MainActivity : AppCompatActivity() {
             "Robert Kiyosaki",
             "Anne Frank"
         )
+
+        myRecyclerView.layoutManager = LinearLayoutManager(this)
+        bookList= arrayListOf<books>()
+
+        for (index in bookImageArray.indices){
+            val book = books(bookImageArray[index],bookTitleArray[index] ,bookAuthorArray[index])
+            bookList.add(book)
+        }
+
+        val spanCount = if (resources.configuration.screenWidthDp < 600) 2 else 3
+        myRecyclerView.layoutManager = GridLayoutManager(this, spanCount)
+        myRecyclerView.adapter = MyAdapter(bookList,this)
     }
 }

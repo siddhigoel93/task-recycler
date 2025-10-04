@@ -1,3 +1,5 @@
 package com.example.books
 
-data class books(var bookImage: Int , var title : String , var author: String)
+import android.R
+
+data class books(var bookImage: Int, var title : String, var author: String)

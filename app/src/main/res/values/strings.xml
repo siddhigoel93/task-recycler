@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">books</string>
+    <string name="genre">
+        Genre: Adventure, Philosophical Fiction
+    </string>
+    <string name="alchemist">
+        This novel follows Santiago, a young shepherd boy, on his journey to find a hidden treasure and discover
+        his “Personal Legend.” Blending mysticism, wisdom, and adventure, it emphasizes
+        the importance of following your dreams and listening to your heart.
+    </string>
 </resources>
