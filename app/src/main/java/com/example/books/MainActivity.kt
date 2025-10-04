@@ -67,7 +67,11 @@ class MainActivity : AppCompatActivity() {
             bookList.add(book)
         }
 
-        val spanCount = if (resources.configuration.screenWidthDp < 600) 2 else 3
+        val spanCount = when {
+            resources.configuration.screenWidthDp < 600 -> 2
+            resources.configuration.screenWidthDp < 900 -> 3
+            else -> 4
+        }
         myRecyclerView.layoutManager = GridLayoutManager(this, spanCount)
         myRecyclerView.adapter = MyAdapter(bookList,this)
     }
