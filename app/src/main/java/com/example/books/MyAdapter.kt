@@ -44,7 +44,7 @@ class MyAdapter(var bookList : ArrayList<books> , var context: Activity) :
 
         init {
             itemView.setOnClickListener{
-                listener.onItemClick(adapterPosition)
+                listener.onItemClick(bindingAdapterPosition)
             }
         }
     }

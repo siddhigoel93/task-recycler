@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
@@ -80,7 +79,6 @@ class MainActivity : AppCompatActivity() {
             "Description: Contrasts lessons from two father figures to teach financial literacy, mindset, and wealth-building strategies.",
             "Description: Diary of a Jewish girl hiding with her family during WWII, giving a personal perspective on fear, hope, and survival."
         )
-        myRecyclerView.layoutManager = LinearLayoutManager(this)
         bookList= arrayListOf<books>()
 
         for (index in bookImageArray.indices){
@@ -94,7 +92,7 @@ class MainActivity : AppCompatActivity() {
             else -> 4
         }
         myRecyclerView.layoutManager = GridLayoutManager(this, spanCount)
-        var myAdapter = MyAdapter(bookList,this)
+        val myAdapter = MyAdapter(bookList,this)
         myRecyclerView.adapter = myAdapter
         myAdapter.setClicklListener(object : MyAdapter.OnItemClickListener{
             override fun onItemClick(position: Int){
